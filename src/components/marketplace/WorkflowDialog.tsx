@@ -76,9 +76,9 @@ export const WorkflowDialog = ({
 
   return (
     <Dialog open={!!workflow} onOpenChange={onOpenChange}>
-      <DialogContent className="glass-card sm:max-w-[600px]">
+      <DialogContent className="bg-gray-800 border-gray-700 sm:max-w-[600px]">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-black">
+          <DialogTitle className="text-2xl font-bold text-white">
             {workflow.name}
           </DialogTitle>
         </DialogHeader>
@@ -88,22 +88,22 @@ export const WorkflowDialog = ({
             alt={workflow.name}
             className="w-full h-64 object-cover rounded-lg transition-all duration-300 hover:shadow-2xl"
           />
-          <p className="text-black text-base">{workflow.desc}</p>
+          <p className="text-gray-300 text-base">{workflow.desc}</p>
           <div className="flex flex-col space-y-4">
             <div className="flex justify-between items-center">
-              <span className="text-black">Price:</span>
-              <span className="text-black font-semibold text-xl">
+              <span className="text-gray-300">Price:</span>
+              <span className="text-white font-semibold text-xl">
                 {workflow.price} FLOW
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-black">Seller:</span>
-              <span className="text-black">{workflow.seller}</span>
+              <span className="text-gray-300">Seller:</span>
+              <span className="text-gray-300 font-mono text-sm">{workflow.seller}</span>
             </div>
             {purchased ? (
               <Button
               onClick={() => handleDownload(workflow._id)}
-              className="w-full glass-card hover:bg-gray-50 hover:shadow-2xl transition-all duration-300 text-black"
+              className="w-full bg-gray-700/50 hover:bg-gray-600/50 text-white border border-gray-600/50 transition-all duration-300"
               size="lg"
               >
               <Download className="w-5 h-5 mr-2" />
@@ -112,7 +112,7 @@ export const WorkflowDialog = ({
             ) : (
               <Button
               onClick={() => onPurchase(workflow)}
-              className="w-full glass-card hover:bg-gray-50 hover:shadow-2xl transition-all duration-300 text-black"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white transition-all duration-300"
               size="lg"
               >
               <ShoppingBag className="w-5 h-5 mr-2" />

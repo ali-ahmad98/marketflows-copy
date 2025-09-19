@@ -61,24 +61,23 @@ export const TopSellingCarousel = ({
 
   return (
     <div className="mb-12">
-      <h2 className="text-2xl font-semibold mb-6">Top Selling Workflows</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-white">Top Selling Workflows</h2>
       <Carousel className="w-full">
         <CarouselContent>
           {workflows.map((workflow) => (
             <CarouselItem key={workflow._id} className="md:basis-1/2 lg:basis-1/3">
               <Card
-                className="p-6 bg-white border border-gray-200 hover:border-blue-500 transition-all duration-300 cursor-pointer h-full"
+                className="p-6 bg-gray-800/50 border border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/70 transition-all duration-300 cursor-pointer h-full backdrop-blur-sm"
                 onClick={() => onWorkflowSelect(workflow)}
               >
                 <div className="flex flex-col h-full">
-                  <h3 className="text-xl font-semibold mb-2">{workflow.name}</h3>
-                  <p className="text-gray-400 mb-4 flex-grow">
+                  <h3 className="text-xl font-semibold mb-2 text-white">{workflow.name}</h3>
+                  <p className="text-gray-400 mb-4 flex-grow text-sm">
                     {workflow.desc}
                   </p>
                   <div className="flex justify-between items-center">
-                    <div className="text-blue-400">
-                      <span className="text-sm">Price:</span>
-                      <span className="ml-2 font-semibold">
+                    <div className="text-white">
+                      <span className="text-sm font-semibold">
                         {workflow.price} FLOW
                       </span>
                     </div>
@@ -88,7 +87,7 @@ export const TopSellingCarousel = ({
                           e.stopPropagation();
                           handleDownload(workflow._id);
                         }}
-                        variant="secondary"
+                        className="bg-gray-700/50 hover:bg-gray-600/50 text-white border border-gray-600/50"
                         size="sm"
                       >
                         <Download className="w-4 h-4 mr-2" />
@@ -100,7 +99,7 @@ export const TopSellingCarousel = ({
                           e.stopPropagation();
                           onPurchase(workflow);
                         }}
-                        variant="secondary"
+                        className="bg-orange-600 hover:bg-orange-700 text-white"
                         size="sm"
                       >
                         <ShoppingBag className="w-4 h-4 mr-2" />
@@ -113,8 +112,8 @@ export const TopSellingCarousel = ({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="bg-gray-800/50 border-gray-700/50 text-white hover:bg-gray-700/50" />
+        <CarouselNext className="bg-gray-800/50 border-gray-700/50 text-white hover:bg-gray-700/50" />
       </Carousel>
     </div>
   );
